@@ -1,17 +1,22 @@
 import React from "react";
-import Factorial from "./components/Factorial";
+import { Routes, Route, Link } from "react-router-dom";
+import FactorialPage from "./pages/FactorialPage";
+import FibonacciPage from "./pages/FibonacciPage";
 import "./App.css";
 
 function App() {
   return (
-    <div className="app-container">
-      <h1>ReactJS Lab Programs</h1>
+    <>
+      <nav className="nav">
+        <Link to="/">Factorial</Link>
+        <Link to="/fibonacci">Fibonacci</Link>
+      </nav>
 
-      <div className="program-section">
-        <h2>Factorial of a Number</h2>
-        <Factorial />
-      </div>
-    </div>
+      <Routes>
+        <Route path="/" element={<FactorialPage />} />
+        <Route path="/fibonacci" element={<FibonacciPage />} />
+      </Routes>
+    </>
   );
 }
 
